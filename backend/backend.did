@@ -1,0 +1,21 @@
+type GameState = 
+ record {
+   dealerHand: vec Card;
+   dealerScore: nat;
+   deck: vec Card;
+   gameOver: bool;
+   playerHand: vec Card;
+   playerScore: nat;
+   result: text;
+ };
+type Card = 
+ record {
+   suit: text;
+   value: text;
+ };
+service : {
+  getGameState: () -> (GameState) query;
+  playerHit: () -> (GameState);
+  playerStand: () -> (GameState);
+  startNewGame: () -> (GameState);
+}
